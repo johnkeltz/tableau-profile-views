@@ -27,7 +27,7 @@ To build this, first load three libraries- jQuery, c3.js, and d3.js. [C3.js](htt
 </head>
 ```
 
-Next, add an input box and a couple divs that we'll use to attach content with JavaScript:
+Next, use html to add an input box and a couple divs that we'll use to attach content with JavaScript:
 
 ```html
 Enter profile name: 
