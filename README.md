@@ -110,4 +110,6 @@ var chart = c3.generate({
 });
 ```
 
-This code builds a graph for one author. Check out the html file to see a second, similar function to add a comparison.
+This code builds a graph for one author. Check out the [html file](https://github.com/johnkeltz/tableau-profile-views/tree/master/code) to see a second, similar function to add a comparison.
+
+Want to try it for yourself? [Try it here](http://htmlpreview.github.io/?https://github.com/johnkeltz/tableau-profile-views/blob/master/code/Tableau%20Profile%20Views%20comparison.html). But remember, you'll need a CORS extension to use it.
