@@ -1,12 +1,14 @@
-# How to: Query Tableau profile api and graph views
+# How to: Query Tableau profile api and graph view counts
 
-Tableau Public makes it possible to view each author's work and view counts on their [public profile](https://public.tableau.com/profile/john5005#!/). It's possible to [scrape a public profile](https://www.ryansleeper.com/tablueprint-2-my-tableau-public-viz-views/) to get view counts, but an alternative solution is to query Tableau's [profile api](https://public.tableau.com/profile/api/john5005/workbooks?count=300&index=0#) to build a graph. This way we can get real-time counts for any profile we want.
+Tableau Public makes it possible to view each author's work and view counts on their [public profile](https://public.tableau.com/profile/john5005#!/). If we want to summarize view counts, we can [scrape a public profile](https://www.ryansleeper.com/tablueprint-2-my-tableau-public-viz-views/), but an alternative solution is to query Tableau's [profile api](https://public.tableau.com/profile/api/john5005/workbooks?count=300&index=0#) to build a graph. This way we can get real-time counts for any profile we want.
 
-Tableau doesn't connect dirrectly to an api without building a web connector, so I instead build a visual in D3. Here's a quick preview:
+Tableau doesn't connect directly to an api without building a web connector, so I instead build a visual in D3. Here's a quick preview:
 
 ![](https://raw.githubusercontent.com/johnkeltz/tableau-profile-views/master/images/Tableau%20view%20count%20example.gif)
 
-To build this, first load three libraries- jQuery, c3.js, and d3.js. C3.js is a library built on top of d3.js to simplify code for making graphs.
+One caveat: Tableau doesn't have open permissions for this api, so you'll need to use a CORS extension to actuallyuse this tool. So- probably not a useful tool for a website, but it serves as a quick example of how to build a graph in JavaScript.
+
+To build this, first load three libraries- jQuery, c3.js, and d3.js. [C3.js](https://c3js.org/) is a library built on top of d3.js to simplify code for making graphs.
 
 ```html
 <head>
@@ -82,3 +84,30 @@ Once we've made a call to the profile, our next step is to pull out the results 
     counts.push(viewData[i].counts);
   }
 ```
+
+Now that we have our formatted data, graphing the data in c3.js is quick:
+
+```
+var chart = c3.generate({
+	bindto: '#chart', ///attaches chart to our div
+	size: {
+		height: graphHeight
+	},
+	data: {
+		columns: [
+			counts
+		],
+		type: 'bar',
+		labels: true
+	},
+	axis: {
+		x: {
+			type: 'category',
+			categories: titles
+		},
+		rotated: true
+	}
+});
+```
+
+This code builds a graph for one author. Check out the html file to see a second, similar function to add a comparison.
