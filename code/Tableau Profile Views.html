@@ -1,0 +1,29 @@
+<head>
+<title>Tableau Profile Views</title>
+
+	<!-- Load c3.css -->
+	<link href="https://apsinsights.org/wp-content/uploads/2018/03/c3.min_.css" rel="stylesheet">
+
+	<!-- Load d3.js and c3.js -->
+	<script src="https://apsinsights.org/wp-content/uploads/2018/03/d3.min_.js" charset="utf-8"></script>
+	<script src="https://apsinsights.org/wp-content/uploads/2018/03/c3.min_.js"></script>
+	
+	<!-- Load jquery -->
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	
+	<!-- Load javascript -->
+	<script src="Tableau Profile Views.js"></script>
+
+</head>
+
+<body>
+
+Enter profile name: 
+<input name="profile" type="text" maxlength="256" id="profile" class="searchField"/> <button onclick="getProfile()">Submit</button>
+
+<div id="compare"></div>
+
+<h3>Views by Dashboard</h3>
+<div id="chart"></div>
+
+</body>
