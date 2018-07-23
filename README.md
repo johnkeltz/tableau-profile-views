@@ -1,6 +1,6 @@
 # How to: Query Tableau profile api and graph view counts
 
-Tableau Public makes it possible to view each author's work and view counts on their [public profile](https://public.tableau.com/profile/john5005#!/). If we want to summarize our view counts, we can [scrape that public profile](https://www.ryansleeper.com/tablueprint-2-my-tableau-public-viz-views/), but an alternative solution is to query Tableau's [profile api](https://public.tableau.com/profile/api/john5005/workbooks?count=300&index=0#) to build a graph. This way we can get real-time counts for any profile we want.
+Tableau Public makes it possible to view an author's work and view counts on their [public profile](https://public.tableau.com/profile/john5005#!/). If we want to summarize an author's view counts, we can [scrape the author's public profile](https://www.ryansleeper.com/tablueprint-2-my-tableau-public-viz-views/), but an alternative solution is to query Tableau's [profile api](https://public.tableau.com/profile/api/john5005/workbooks?count=300&index=0#) to build a graph. This way we can get real-time counts for any profile we want.
 
 Tableau doesn't connect directly to an api without building a web connector, so instead I built a visual in D3. Here's a quick preview:
 
