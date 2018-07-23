@@ -91,6 +91,9 @@ function getProfile2(){
 			}
 		});
 		
+	},
+	error: function(jqXHR, textStatus, errorThrown) {
+		if(jqXHR.responseText=='{"error":{"message":"No author found!"}}'){alert('No author found named, "' + profile2 + '".')}
 	}});
 };
 
@@ -155,7 +158,13 @@ function getProfile(){
 		///add comparison
 		document.getElementById("compare").innerHTML = '<br>Comparison profile? <input name="profile2" type="text" maxlength="256" id="profile2" class="searchField"/> <button onclick="getProfile2()">Submit</button>';
 		
-    }});
+    },
+	error: function(jqXHR, textStatus, errorThrown) {
+		if(jqXHR.responseText=='{"error":{"message":"No author found!"}}'){alert('No author found named, "' + profile + '".')}
+		else{alert('Application only works with a CORS extension')}
+	}
+	
+	});
 }
 
 </script>
